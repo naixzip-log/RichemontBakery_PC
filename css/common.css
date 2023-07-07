@@ -1,0 +1,280 @@
+@charset "utf-8";
+
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+@font-face {
+    font-family: 'HeirofLight';
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'HeirofLight';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightBold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightBold.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightBold.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightBold.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightBold.ttf') format("truetype");
+    font-display: swap;
+}
+
+
+
+*{
+    padding: 0; margin: 0;
+    font-family:  "Pretendard Variable", "Noto Sans KR","Apple SD Gothic Neo",  "Malgun Gothic",sans-serif;
+    color: #333;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+img{
+    display: block;
+    border: none; 
+}
+table{
+    border-spacing: 0; 
+    border-collapse: collapse;
+}
+fieldset{border: none;} 
+button{cursor: pointer;}
+
+.inner_wrap{
+    width: 1280px; /* 컨텐츠 최소 사이즈 */
+    height: 100%; /* 행간별로 높이가 다르니까 부모영역 100% 상속 */
+    margin: 0 auto; /* 부모영역에서 가로 가운데 처리 */
+}
+.away{ text-indent: -999em; }
+
+
+
+
+/* header */
+header{
+    position: fixed; left: 0; top: 0; z-index: 5000;
+    width: 100%; min-width: 1280px; height: 165px;
+    transition: 0.5s; background-color: #fff;
+}
+
+/* top_nav */
+.top_nav{
+    position: relative;
+    width: 1280px; height: 110px; margin: 0 auto;
+}
+
+.top_nav ul{
+    display: flex; justify-content: flex-end;
+    width: 1280px; height: 15px;
+    margin: 0 auto;
+    line-height: 30px;
+    font-size: 15px;
+}
+.top_nav li{
+    line-height: 30px;
+}
+.top_nav li:nth-child(n+1){
+    position: relative;
+    margin-right: 15px;
+    padding-left: 15px;
+}
+.top_nav li:nth-child(n+2)::after {
+    position:absolute; left: 0; top: 12px;
+    content: "";
+    width: 1px; height: 10px;
+    background-color: #1f275b;
+}
+
+/* logo */
+h1{
+    position: absolute; left: calc(50% - 100px); top: 10PX;
+    width: 260px; height: 100px; margin: 0 auto; 
+    background-image: url(../images/common/logo_header_big.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+}
+
+/* gnb */
+.gnb{
+    width: 100%; min-width: 1280px; height: 60px;
+    margin: 0 auto;
+}
+.gnb > ul{
+    width: 1180px; height: 55px;
+    margin: 0 auto; 
+    display: flex; justify-content: space-between;
+}
+.gnb > ul > li{
+    width: 100%; height: 100%;
+    text-align: center; 
+    position: relative;
+}
+
+/* main_nav */
+.gnb .main_nav{
+    position: relative;
+    width: 130px; height: 100%; 
+    font-size: 22px; color: #333; font-weight: bold; 
+    line-height: 55px; text-align: center;
+}
+.gnb li:hover .main_nav{
+    color: #1f275b;
+    border-bottom: 4px solid #1f275b;
+    box-sizing: border-box;
+}
+.gnb .main_nav.active{ 
+    color: #1f275b;
+    border-bottom: 4px solid #1f275b;
+}
+
+
+
+
+/* sub_nav */
+.sub_nav{
+    display: none;
+	position: absolute; top: 55px; left: 0; z-index: 5100; 
+	width: 100%; height: 300px; line-height: 40px;
+}
+.sub_nav li{
+    width: 100%; height: 50px; line-height: 50px;
+}
+.sub_nav a{
+    width: 160px; height: 30px;
+    font-size: 16px; color: #333;
+    cursor: pointer;
+}
+.sub_nav a:hover{ 
+    border-bottom: 2px solid #1f275b; 
+    color: #1f275b; 
+}
+.sub_nav.active{ 
+    border-bottom: 2px solid #1f275b; 
+    color: #1f275b; 
+}
+
+.subbg{
+	display: none;
+    position: absolute; top: 165px; left: 0; z-index: 5050;
+	width: 100%; height: 260px;
+	background-color: white;
+}
+
+/* header scroll */
+header.active{
+    height: 60px;
+    border-bottom: 1px solid #ccc; transition: 0.5s;
+}
+header.active .gnb{ 
+    position: absolute; left: 0; top: 0;
+    width: 100%; height: 100%;  margin: 0 auto;
+}
+header.active .top_nav{ height: 0; }
+header.active .top_nav ul li{ display: none; }
+header.active h1{ 
+    position: absolute; left: -180px; top: 5px;
+    width: 130px; height: 50px;
+    background-image: url(../images/common/logo_header_small.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+header.active .subbg{ top: 60px; } /* 하위메뉴배경도 높이를 변경해줘야 함 */
+header.active .sub_nav{ top: 60px; } /* 메인메뉴의 높이도 달라져서 변경해줘야 함 */
+header.active + main{ padding-top: 60px; transition: 0.5s; }
+
+/* footer */
+footer{
+    width: 100%; min-width: 1280px; height: 650px;
+    background-color: #1f275b;
+    line-height: 50px;
+} 
+footer *{font-size: 16px; color: #fff;}
+.f_logo{
+    width: 100%; height: 240px;
+    margin: 0 auto;
+    text-align: center;
+}
+.f_logo img{
+    width: 350px; height: 160px;
+    margin: 0 auto; padding-top: 40px; 
+}
+.f_sns_icon{
+    display: flex; justify-content: space-between;
+    width: 520px; height: 80px;
+    margin: 0 auto;
+    text-align: center;
+}
+.f_sns_icon img{
+    width: 80px; height: 80px;
+}
+.f_center{
+    display: flex; justify-content: space-between;
+    width: 590px; height: 50px; margin: 50px auto;
+    text-align: center;
+}
+.f_info{
+    width: 100%; height: 80px; margin: 0 auto;
+    text-align: center; line-height: 40px;
+}
+.f_copy{
+    width: 100%; height: 50px; margin: 50px auto 0;
+    text-align: center;
+}
+
+/* quickmenu */
+.quickmenu{
+    position: fixed; right: calc(50% - 820px); top: 380px; z-index: 5000;
+    display: none;
+    width: 80px; height: 320px;
+    background-color: rgba(255, 255, 255, 60%);
+    border: 2px solid #1f275b;
+    border-radius: 5px;
+}
+.quickmenu ul{
+    display: block; width: 100%; height: 100px;
+}
+.quickmenu li{
+    width: 60px; height: 80px; margin: 0 auto;
+}
+.quickmenu a{ 
+    width: 50px; height: 50px; opacity: 0.5;
+}
+.quickmenu a:hover{ width: 100%; height: 100%; opacity: 1;}
+.quickmenu .reservation{
+    width: 60px; height: 50px; 
+    background-image: url(../images/main/quickmenu_store.svg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+.quickmenu .faq{
+    width: 60px; height: 50px; 
+    background-image: url(../images/main/quickmenu_faq.svg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+.quickmenu .custom{
+    width: 60px; height: 50px; 
+    background-image: url(../images/main/quickmenu_cs.svg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+.quickmenu .text{
+    width: 60px; height: 20px; margin: 0 auto 15px;
+    color: #1f275b; font-size: 14px; text-align: center;
+}
+.quickmenu .scroll_top{
+    width: 60px; height: 30px; margin-top: 10px;
+    background-image: url(../images/main/quickmenu_scroll.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.quickmenu .scroll_line{ 
+    width: 50px; height: 1px; margin: 8px auto 0;
+    background-color: #1f275b; opacity: 0.7;
+}
